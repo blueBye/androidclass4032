@@ -1,4 +1,4 @@
-package com.example.androidclass4032.views
+package com.example.androidclass4032.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -11,13 +11,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.androidclass4032.viewmodel.PetsViewModel
 import com.example.androidclass4032.ui.theme.AndroidClass4032Theme
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun PetList(modifier: Modifier = Modifier) {
-    val petsViewModel: PetsViewModel = viewModel()
+    val petsViewModel: PetsViewModel = koinViewModel()
 
     LazyColumn(modifier = modifier) {
         items(petsViewModel.getPets()) { pet ->
