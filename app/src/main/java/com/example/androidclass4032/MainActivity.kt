@@ -35,8 +35,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AndroidClass4032Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) {
-                    MyApp()
+                Scaffold(modifier = Modifier.fillMaxSize()) { padding ->
+                    MyApp(Modifier.padding(padding))
                 }
             }
         }
@@ -44,11 +44,13 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MyApp() {
+fun MyApp(modifier: Modifier = Modifier) {
     var count by remember { mutableStateOf(0) }
 
     Column(
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.padding(16.dp).fillMaxSize().background(color = Pink40),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
     ) {
         Text(text = "Counter: $count", style = MaterialTheme.typography.
         bodyLarge)
