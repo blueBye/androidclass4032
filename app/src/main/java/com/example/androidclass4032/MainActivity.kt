@@ -1,5 +1,6 @@
 package com.example.androidclass4032
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -30,13 +31,14 @@ import com.example.androidclass4032.ui.theme.AndroidClass4032Theme
 import com.example.androidclass4032.ui.theme.Pink40
 
 class MainActivity : ComponentActivity() {
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             AndroidClass4032Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { padding ->
-                    MyApp(Modifier.padding(padding))
+                Scaffold(modifier = Modifier.fillMaxSize()) {
+                    MyApp()
                 }
             }
         }
@@ -44,7 +46,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MyApp(modifier: Modifier = Modifier) {
+fun MyApp() {
     var count by remember { mutableStateOf(0) }
 
     Column(
